@@ -1,0 +1,84 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页 "
+			}
+		},
+		{
+			"path": "pages/reg/reg",
+			"style": {
+				"navigationBarTitleText": "注册"
+			}
+		},
+		{
+			"path": "pages/cal/cal",
+			"style": {
+				"navigationBarTitleText": "计算"
+			}
+		},
+		{
+			"path": "pages/us/us",
+			"style": {
+				"navigationBarTitleText": "我们"
+			}
+		}
+	    ,{
+            "path" : "pages/us/us",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/reg/reg",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
+	
+	"tabBar": {
+		"color": "#333",
+		"list": [
+			{
+				"text": "main",
+				"pagePath": "pages/index/index",
+				"iconPath": "static/tabbar/home.png",
+				"selectedIconPath": "static/tabbar/home-h.png"
+			},
+			{
+				"text": "reg",
+				"pagePath": "pages/reg/reg",
+				"iconPath": "static/tabbar/list.png",
+				"selectedIconPath": "static/tabbar/list-h.png"
+			},
+			{
+				"text": "main",
+				"pagePath": "pages/cal/cal",
+				"iconPath": "static/tabbar/list.png",
+				"selectedIconPath": "static/tabbar/list-h.png"
+			},
+			{
+				"text": "main",
+				"pagePath": "pages/us/us",
+				"iconPath": "static/tabbar/user.png",
+				"selectedIconPath": "static/tabbar/user-h.png"
+			}
+		]
+	},
+	
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"uniIdRouter": {}
+}
