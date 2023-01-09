@@ -2,9 +2,9 @@ this website was built by php and vue.
 
 
 this tab is the main page, it introduces what this app can do for the user
-![image](https://github.com/Bobbyxie123/uniapp-project/static/pic/1.jpg)
+![image](https://github.com/Bobbyxie123/uniapp-project/blog/main/IMG/1.jpg)
 this tab login page, including login, check my commission, and generate the coupon.
-![image](https://github.com/Bobbyxie123/uniapp-project/static/pic/2.jpg)
+![image](https://github.com/Bobbyxie123/uniapp-project/IMG/2.jpg)
 
 this page allows user to calculate  their commission
 ![image](https://github.com/Bobbyxie123/uniapp-project/static/pic/3.jpg)
