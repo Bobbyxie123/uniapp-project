@@ -18,23 +18,26 @@
 				"navigationBarTitleText": "计算"
 			}
 		},
-		{
-			"path": "pages/us/us",
-			"style": {
-				"navigationBarTitleText": "我们"
-			}
-		}
-	    ,{
+		
+			{
             "path" : "pages/us/us",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "我们",
+                "enablePullDownRefresh": false
+            }}
+			
+        ,{
+            "path" : "pages/test/test",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "test",
                 "enablePullDownRefresh": false
             }
             
         }
         ,{
-            "path" : "pages/reg/reg",
+            "path" : "pages/person-info/person-info",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
@@ -60,14 +63,20 @@
 				"selectedIconPath": "static/tabbar/list-h.png"
 			},
 			{
-				"text": "main",
+				"text": "cal",
 				"pagePath": "pages/cal/cal",
 				"iconPath": "static/tabbar/list.png",
 				"selectedIconPath": "static/tabbar/list-h.png"
 			},
 			{
-				"text": "main",
+				"text": "us",
 				"pagePath": "pages/us/us",
+				"iconPath": "static/tabbar/user.png",
+				"selectedIconPath": "static/tabbar/user-h.png"
+			},
+			{
+				"text": "test",
+				"pagePath": "pages/test/test",
 				"iconPath": "static/tabbar/user.png",
 				"selectedIconPath": "static/tabbar/user-h.png"
 			}

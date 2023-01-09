@@ -1,0 +1,1 @@
+<view><u-button wx:if="{{b}}" u-s="{{['d']}}" bindclick="{{a}}" u-i="63a6b823-0" bind:__l="__l" u-p="{{b}}">click to login</u-button></view>

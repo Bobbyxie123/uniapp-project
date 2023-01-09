@@ -3,30 +3,25 @@
 		<form action="">
 			<view class="row ">
 				<text style="color: red;">*</text>
-				<text class="tit">姓名</text>
-				<input :class="{ 'active': isActive.name }" class="input" type="text" v-model="MyData.name" placeholder="请输入姓名" />
+				<text class="tit">社交账号</text>
+				<input :class="{ 'active': isActive.account }" class="input" type="text" v-model="MyData.account" placeholder="请输入社交账号" />
 			</view>
 			<view class="row ">
 				<text style="color: red;">*</text>
-				<text class="tit">邮箱</text>
-				<input :class="{ 'active': isActive.email }" class="input" type="text" v-model="MyData.email" placeholder="请输入邮箱"/>
+				<text class="tit">粉丝数</text>
+				<input :class="{ 'active': isActive.fans }" class="input" type="number" v-model="MyData.fans" placeholder="请输入粉丝数"/>
 			</view>
 			<view class="row ">
 				<text style="color: red;">*</text>
-				<text class="tit">手机号</text>
-				<input :class="{ 'active': isActive.mobile }" class="input" type="number" v-model="MyData.mobile" placeholder="请输入手机号码"/>
+				<text class="tit">点赞数</text>
+				<input :class="{ 'active': isActive.likes }" class="input" type="number" v-model="MyData.likes" placeholder="请输入点赞数"/>
 			</view>
 			<view class="row ">
 				<text style="color: red;">*</text>
-				<text class="tit">大学</text>
-				<input :class="{ 'active': isActive.uni }" class="input" type="text" v-model="MyData.uni" placeholder="请输入大学"/>
+				<text class="tit">推广频率</text>
+				<input :class="{ 'active': isActive.freq }" class="input" type="number" v-model="MyData.freq" placeholder="请输入推广频率"/>
 			</view>
 			
-			<view class="row ">
-				<text style="color: red;">*</text>
-				<text class="tit">微信号</text>
-				<input :class="{ 'active': isActive.wechat }" class="input" type="text" v-model="MyData.wechat" placeholder="请输入微信号"/>
-			</view>
 			
 			<!-- here will show the error infomation -->
 			<view v-if="error.length">
@@ -41,7 +36,8 @@
 			
 
 			
-			<button class="add-btn"  style="width: 300rpx;" @click="confirm">提交</button>
+			<button class="add-btn"  style="width: 300rpx;" @click="confirm">计算</button>
+
 		</form>
     </view>
 </template>
@@ -50,21 +46,22 @@
     export default {
         data() {
             return {
+				result:'',
 				isActive: {
-					name:false,
-					email:false,
-					mobile: false,
-					uni: false,
-					wechat: false
+					account:false,
+					fans:false,
+					likes: false,
+					freq: false
 					},
+					
 				error:[],
 				
                 MyData: {
-                    name: '',
-					email:'',
-                    mobile: '',
-                    uni: '',
-                    wechat: ''
+                    account: '',
+					fans:'',
+                    likes: '',
+                    freq: ''
+
                 }
             }
         },
@@ -75,73 +72,56 @@
 			confirm() {		
 				// reset everything
 				this.error = [];
-				this.isActive.name = false;
-				this.isActive.email = false;
-				this.isActive.uni = false;
-				this.isActive.wechat = false;
-				this.isActive.mobile = false
+				this.isActive.account = false;
+				this.isActive.fans = false;
+				this.isActive.freq = false;
+				this.isActive.likes = false
 	
 
-				// identify if name,email... is qualified
-				if(!this.MyData.name){
-					this.error.push('请舔你的名字');
-	
-					this.isActive.name = true
+				// identify if account,email... is qualified
+				if(!this.MyData.account){
+					this.error.push('请舔你的account');
+					this.isActive.account = true
 				}
 				
-				if(!this.MyData.email){
-					this.error.push('请舔你的email')
-					this.isActive.email = true
-				} else if (!this.validEmail(this.MyData.email)) {
-					this.error.push('填正确的email地址');
-					this.isActive.email = true
-				  }
+				if(!this.MyData.fans){
+					this.error.push('请舔你的fans')
+					this.isActive.fans = true
+				} 
 				
-				if(!this.MyData.uni){
-					this.error.push('请舔你的大学');
-					this.isActive.uni = true
+				if(!this.MyData.freq){
+					this.error.push('请舔你的freq');
+					this.isActive.freq = true
 				}
 				
-				if(!this.MyData.wechat){
-					this.error.push('请舔你的wechat')
-					this.isActive.wechat = true
+				if(!this.MyData.likes){
+					this.error.push('请舔你的likes');
+					this.isActive.likes = true
 				}
 				
-				if(!this.MyData.mobile){
-					this.error.push('请舔你的手机');
-					this.isActive.mobile = true
-				}else if(!this.validMobile(this.MyData.mobile)){
-					this.error.push('填正确的手机号码');
-					this.isActive.mobile = true
-				}
-				
-				
-
-				if(!error){			    
+				if(this.error.length==0){			    
 					console.log(JSON.stringify(this.MyData))
+					this.abc()
 				}
-
+			},  
+			// the end of the function	
 			
-			},
-			
-			
-			// this is function used to valid the email 
-			validEmail: function (email) {
-			      var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-			      return re.test(email);
-			    },
-			
-			// this is function used to valid mobile
-			validMobile: function(mobile){
-				var reg = /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/
-				return reg.test(mobile)
+			abc:function(){
+				var data1
+				
+				// data1 =  String( Number(this.MyData.fans)+Number(this.MyData.freq)+)
+				data1  = Number(this.MyData.fans)+Number(this.MyData.freq)+Number(this.MyData.likes)
+				wx.showModal({
+					title: '计算结果',
+					content: data1+'',
+					showCancel: false,
+					confirmText: '确定'
+				});
 			}
-				
-				
-			
-			
-			
-        }
+        },
+		// the end of method 
+
+		
     }
 </script>
 

@@ -1,0 +1,1 @@
+<view><button class="cu-btn bg-blue lg shadow" bindtap="{{a}}">点击授权登录</button></view>

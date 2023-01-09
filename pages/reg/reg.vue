@@ -14,7 +14,7 @@
 			<view class="row ">
 				<text style="color: red;">*</text>
 				<text class="tit">手机号</text>
-				<input :class="{ 'active': isActive.mobile }" class="input" type="number" v-model="MyData.mobile" placeholder="请输入手机号码"/>
+				<input :class="{ 'active': isActive.mobile }" class="input" type="text" v-model="MyData.mobile" placeholder="请输入手机号码"/>
 			</view>
 			<view class="row ">
 				<text style="color: red;">*</text>
@@ -117,7 +117,7 @@
 				
 				
 
-				if(!error){			    
+				if(this.error.length==0){			    
 					console.log(JSON.stringify(this.MyData))
 				}
 

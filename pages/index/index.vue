@@ -1,52 +1,33 @@
 <template>
-	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view class="text-area">
-			<text class="title">{{title}}</text>
+	<view>
+
+		<button class="cu-btn bg-blue lg shadow" @click="bindGetUserInfo">点击授权登录</button>
+		<view class="123">
+			1231skdomvodis
 		</view>
 	</view>
 </template>
-
 <script>
 	export default {
-		data() {
-			return {
-				title: 'Hello'
-			}
-		},
-		onLoad() {
+        methods: {
 
-		},
-		methods: {
+            bindGetUserInfo(e) {
+				uni.getUserProfile({
+					desc:'weixin',   
+					success:res=>{
 
-		}
-	}
+						console.log(res,'授权成功');
+					},
+					fail:err=>{
+						console.log(err,'失败授权')
+					}
+				})
+            }
+        }        
+ 
+    }
 </script>
-
 <style>
-	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
 
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
-	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
-	}
 </style>
+
